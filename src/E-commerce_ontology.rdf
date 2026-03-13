@@ -5,8 +5,1674 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:matti="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#">
     <owl:Ontology rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#StarRating -->
+
+    <rdfs:Datatype rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#StarRating">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:minInclusive>
+                    </rdf:Description>
+                    <rdf:Description>
+                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</xsd:maxInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#boughtBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#boughtBy">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#purchased"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Product"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#contains -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#contains">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Product"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#deliveredTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#deliveredTo">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PhysicalOrder"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#DeliveryDestination"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#downloadableBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#downloadableBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Digital"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#hasBalance -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#hasBalance">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Balance"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#hasLifecycle -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#hasLifecycle">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Lifecycle"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#livesIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#livesIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#managedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#managedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Seller"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#orderOriginatesFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#orderOriginatesFrom">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Location"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#placedBy"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#livesIn"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#paidWith -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#paidWith">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Payment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#placedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#placedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#purchased -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#purchased">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Product"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#receivesSupportFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#receivesSupportFrom">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Support"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#requiresShipping -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#requiresShipping">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PhysicalOrder"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#DeliveryDestination"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#sells -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#sells">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#soldBy"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Seller"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Product"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#shippedFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#shippedFrom">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PhysicalOrder"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#soldBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#soldBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Product"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Seller"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#storedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#storedIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Physical"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#accountBalance -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#accountBalance">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Balance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#cancellationReason -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#cancellationReason">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Cancelled"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#cityName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#cityName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Location"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#companyName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#companyName">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Corporate"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Seller"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#downloadSizeMB -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#downloadSizeMB">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Digital"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#estimatedDeliveryDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#estimatedDeliveryDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PhysicalOrder"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#expireDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#expireDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Perishable"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#firstName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#firstName">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Human"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Individual"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Seller"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#hasEmail -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#hasEmail">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Seller"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#hasOrderID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#hasOrderID">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#hasPassword -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#hasPassword">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Seller"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#hasPrice -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#hasPrice">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#hasVATnumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#hasVATnumber">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Corporate"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Seller"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#lastName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#lastName">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Human"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Individual"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Seller"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#licenceKey -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#licenceKey">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Licence"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#lockerPIN -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#lockerPIN">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Locker"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#maskedCardNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#maskedCardNumber">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#CreditCard"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#orderDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#orderDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#productDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#productDescription">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#productName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#productName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#registrationDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#registrationDate">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Seller"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#sellerRating -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#sellerRating">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Seller"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#StarRating"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#stockQuantity -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#stockQuantity">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Physical"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#storageTemperature -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#storageTemperature">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Perishable"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#streetAddress -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#streetAddress">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Location"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#ticketID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#ticketID">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Support"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#trackingNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#trackingNumber">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PhysicalOrder"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#walletAddress -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#walletAddress">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Crypto"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#weightKg -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#weightKg">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Physical"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Address -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Address">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#DeliveryDestination"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Locker"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Automated -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Automated">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Support"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Human"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Balance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Balance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Finance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Beauty -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Beauty">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Physical"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#User"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Call -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Call">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Human"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Message"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Cancelled -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Cancelled">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Lifecycle"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#cancellationReason"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Chatbot -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Chatbot">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Automated"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Clothing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Clothing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Physical"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Completed -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Completed">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Lifecycle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Corporate -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Corporate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#hasVATnumber"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Individual"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#CreditCard -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#CreditCard">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Payment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#maskedCardNumber"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Crypto"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Crypto -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Crypto">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Payment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#walletAddress"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#DeliveryDestination -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#DeliveryDestination">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Digital -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Digital">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Product"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#downloadSizeMB"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Physical"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#DigitalOrder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#DigitalOrder">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#contains"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Digital"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#contains"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Digital"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Electronic -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Electronic">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Physical"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#External -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#External">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Seller"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Internal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Faq -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Faq">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Automated"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Finance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Finance"/>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#FreeShippingOrder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#FreeShippingOrder">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PhysicalOrder"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#placedBy"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PrimeSubscriber"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PhysicalOrder"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Human -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Human">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Support"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Individual -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Individual">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Internal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Internal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Seller"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Licence -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Licence">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Digital"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Lifecycle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Lifecycle"/>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Location -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Location"/>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Locker -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Locker">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#DeliveryDestination"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Message -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Message">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Human"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#NewGoodsWarehouse -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#NewGoodsWarehouse">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#OfficialWarehouse -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#OfficialWarehouse">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#managedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Internal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Transaction"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#contains"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Product"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#hasLifecycle"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Lifecycle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#placedBy"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#OutOfStockProduct -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#OutOfStockProduct">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Physical"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#stockQuantity"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Physical"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Payment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Payment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Finance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Pending -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Pending">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Lifecycle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Perishable -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Perishable">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Physical"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#expireDate"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Physical -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Physical">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Product"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#storedIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#weightKg"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PhysicalOrder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PhysicalOrder">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#contains"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Physical"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#deliveredTo"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#DeliveryDestination"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PremiumProduct -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PremiumProduct">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Product"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#hasPrice"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">500.0</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Product"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PrimeProduct -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PrimeProduct">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Physical"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#storedIn"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#OfficialWarehouse"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Physical"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PrimeSubscriber -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PrimeSubscriber">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Product -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Product">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#soldBy"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Seller"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Refrigerated -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Refrigerated">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Perishable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#storageTemperature"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#ReturnsWarehouse -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#ReturnsWarehouse">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Seller -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Seller">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#User"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Service -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Service">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Digital"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Shipped -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Shipped">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Lifecycle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Storage -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Storage">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Support -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Support">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#User"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#TopSeller -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#TopSeller">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Seller"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#sellerRating"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Seller"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Transaction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Transaction"/>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#User -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#User"/>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#VIPBuyer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#VIPBuyer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#receivesSupportFrom"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Human"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Storage"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer_Alice -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer_Alice">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Individual"/>
+        <matti:livesIn rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#City_London"/>
+        <matti:hasEmail>alice@email.co.uk</matti:hasEmail>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer_Luigi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer_Luigi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Individual"/>
+        <matti:hasEmail>luigi.verdi@email.com</matti:hasEmail>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer_Mario -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer_Mario">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Individual"/>
+        <matti:livesIn rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#City_Rome"/>
+        <matti:hasEmail>mario.rossi@email.com</matti:hasEmail>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#City_London -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#City_London">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Location"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#City_Rome -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#City_Rome">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Location"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Cookies -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Cookies">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Perishable"/>
+        <matti:storedIn rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse_Standard"/>
+        <matti:expireDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-12-31T23:59:59Z</matti:expireDate>
+        <matti:weightKg rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.5</matti:weightKg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Ebook_OWL -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Ebook_OWL">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Digital"/>
+        <matti:downloadSizeMB rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5.0</matti:downloadSizeMB>
+        <matti:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">15.0</matti:hasPrice>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#External_Seller_Cheap -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#External_Seller_Cheap">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#External"/>
+        <matti:hasEmail>cheap@vendor.com</matti:hasEmail>
+        <matti:sellerRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</matti:sellerRating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Fresh_Milk -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Fresh_Milk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Refrigerated"/>
+        <matti:storedIn rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse_Standard"/>
+        <matti:expireDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-04-15T23:59:59Z</matti:expireDate>
+        <matti:storageTemperature rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.0</matti:storageTemperature>
+        <matti:weightKg rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</matti:weightKg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Hub_Milan -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Hub_Milan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#OfficialWarehouse"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Laptop_X_Pro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Laptop_X_Pro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Electronic"/>
+        <matti:soldBy rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Official_Seller_IT"/>
+        <matti:storedIn rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Hub_Milan"/>
+        <matti:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1200.0</matti:hasPrice>
+        <matti:stockQuantity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</matti:stockQuantity>
+        <matti:weightKg rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.0</matti:weightKg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Lifecycle_Cancelled -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Lifecycle_Cancelled">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Cancelled"/>
+        <matti:cancellationReason>Customer changed mind</matti:cancellationReason>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Lifecycle_Pending -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Lifecycle_Pending">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Pending"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Locker_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Locker_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Locker"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Locker_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Locker_2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Locker"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Mouse_Basic -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Mouse_Basic">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Electronic"/>
+        <matti:soldBy rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#External_Seller_Cheap"/>
+        <matti:storedIn rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse_Standard"/>
+        <matti:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">20.0</matti:hasPrice>
+        <matti:stockQuantity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</matti:stockQuantity>
+        <matti:weightKg rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.2</matti:weightKg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Official_Seller_IT -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Official_Seller_IT">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Internal"/>
+        <matti:hasEmail>admin@ecommerce.com</matti:hasEmail>
+        <matti:sellerRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</matti:sellerRating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order_001 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order_001">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PhysicalOrder"/>
+        <matti:contains rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Laptop_X_Pro"/>
+        <matti:deliveredTo rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Locker_1"/>
+        <matti:deliveredTo rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Locker_2"/>
+        <matti:hasLifecycle rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Lifecycle_Pending"/>
+        <matti:placedBy rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer_Mario"/>
+        <matti:hasOrderID>ORD-12345</matti:hasOrderID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order_002 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order_002">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PhysicalOrder"/>
+        <matti:contains rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Mouse_Basic"/>
+        <matti:hasLifecycle rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Lifecycle_Pending"/>
+        <matti:placedBy rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer_Luigi"/>
+        <matti:hasOrderID>ORD-98765</matti:hasOrderID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order_003_Digital -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order_003_Digital">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#DigitalOrder"/>
+        <matti:contains rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Ebook_OWL"/>
+        <matti:hasLifecycle rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Lifecycle_Pending"/>
+        <matti:placedBy rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer_Alice"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order_004_Mixed -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order_004_Mixed">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order"/>
+        <matti:contains rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Mouse_Basic"/>
+        <matti:contains rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Software_License"/>
+        <matti:hasLifecycle rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Lifecycle_Pending"/>
+        <matti:placedBy rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer_Mario"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order_005_Cancelled -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order_005_Cancelled">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order"/>
+        <matti:contains rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Smartphone_Y"/>
+        <matti:hasLifecycle rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Lifecycle_Cancelled"/>
+        <matti:placedBy rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer_Luigi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Smartphone_Y -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Smartphone_Y">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Electronic"/>
+        <matti:storedIn rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse_Returns"/>
+        <matti:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">800.0</matti:hasPrice>
+        <matti:stockQuantity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</matti:stockQuantity>
+        <matti:weightKg rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.5</matti:weightKg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Software_License -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Software_License">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Licence"/>
+        <matti:downloadSizeMB rdf:datatype="http://www.w3.org/2001/XMLSchema#float">500.0</matti:downloadSizeMB>
+        <matti:hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">60.0</matti:hasPrice>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Tech_Corp_Inc -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Tech_Corp_Inc">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Corporate"/>
+        <matti:hasEmail>admin@techcorp.com</matti:hasEmail>
+        <matti:hasVATnumber>GB123456789</matti:hasVATnumber>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse_Returns -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse_Returns">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#ReturnsWarehouse"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse_Standard -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse_Standard">
+        <rdf:type rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Cancelled"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Completed"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Pending"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Shipped"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Finance"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Location"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Product"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Transaction"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#User"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer_Alice"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer_Luigi"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer_Mario"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#City_London"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#City_Rome"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Cookies"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Ebook_OWL"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#External_Seller_Cheap"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Fresh_Milk"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Hub_Milan"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Laptop_X_Pro"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Locker_1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Locker_2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Mouse_Basic"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Official_Seller_IT"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order_001"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order_002"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order_003_Digital"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order_004_Mixed"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Order_005_Cancelled"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Smartphone_Y"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Software_License"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Tech_Corp_Inc"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse_Returns"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Warehouse_Standard"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4/b">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4/o">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4/p">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>AssignVIPStatus</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#Buyer"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4/b"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#placedBy"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4/o"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4/b"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#PremiumProduct"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4/p"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#contains"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4/o"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4/p"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4#VIPBuyer"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/matti/ontologies/2026/0/untitled-ontology-4/b"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
 </rdf:RDF>
 
 
